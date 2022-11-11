@@ -1,8 +1,8 @@
 ---
 title: "p8105_finalproject_fall2022"
-author: "Brittany Shea..."
+author: "Brittany Shea, Pooja Desai"
 date: "`r Sys.Date()`"
-output: html_document
+output: github_document
 ---
 
 Adding some same text!
