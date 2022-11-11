@@ -1,4 +1,4 @@
-p8105\_finalproject\_fall2022
+p8105_finalproject_fall2022
 ================
 Brittany Shea, Pooja Desai, Erfan Faridmoayer, Sabah Usmani
 2022-11-11
@@ -9,6 +9,9 @@ Brittany Shea - bes2161 Erfan Faridmoayer - ef2721 Pooja Desai - pmd2137
 Niharika Telrandhe - nt2607 Sabah Usmani - su2145
 
 ## The tentative project title
+
+COVID trends in NYC - Understanding the socio-economic and demographic
+trends
 
 ## The motivation for this project
 

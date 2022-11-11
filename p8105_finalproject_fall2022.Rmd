@@ -13,7 +13,7 @@ Niharika Telrandhe - nt2607
 Sabah Usmani - su2145
  
 ## The tentative project title
- 
+COVID trends in NYC - Understanding the socio-economic and demographic trends
  
 ## The motivation for this project
 Our hope is to see the overview Covid trends in NYC, including vaccination rates, and investigate potential associations with socioeconomic status, living location, poverty levels, and other variables.
