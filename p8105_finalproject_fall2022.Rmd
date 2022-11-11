@@ -1,6 +1,6 @@
 ---
 title: "p8105_finalproject_fall2022"
-author: "Brittany Shea, Pooja Desai"
+author: "Brittany Shea, Pooja Desai, Erfan Faridmoayer"
 date: "`r Sys.Date()`"
 output: github_document
 ---
