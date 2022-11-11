@@ -1,6 +1,36 @@
-p8105_finalproject_fall2022
+p8105\_finalproject\_fall2022
 ================
 Brittany Shea, Pooja Desai, Erfan Faridmoayer, Sabah Usmani
 2022-11-11
 
-Adding some same text! Usernames
+## The group members (names and UNIs)
+
+Brittany Shea - bes2161 Erfan Faridmoayer - ef2721 Pooja Desai - pmd2137
+Niharika Telrandhe - nt2607 Sabah Usmani - su2145
+
+## The tentative project title
+
+## The motivation for this project
+
+Our hope is to see the overview Covid trends in NYC, including
+vaccination rates, and investigate potential associations with
+socioeconomic status, living location, poverty levels, and other
+variables.
+
+## The intended final products
+
+At this stage, we anticipate working on the following: Creating a
+website on github with the results of our work.
+
+## The anticipated data sources
+
+-   NYC COVID Vaccine Data:
+    <https://github.com/nychealth/covid-vaccine-data>
+-   NYC Coronavirus Data:
+    <https://github.com/nychealth/coronavirus-data>
+-   NYC Demographics by Zipcode:
+    <https://data.cityofnewyork.us/City-Government/Demographic-Statistics-By-Zip-Code/kku6-nxdu>
+
+## The planned analyses / visualizations / coding challenges
+
+## The planned timeline
