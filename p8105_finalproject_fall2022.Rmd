@@ -1,6 +1,6 @@
 ---
 title: "p8105_finalproject_fall2022"
-author: "Brittany Shea, Pooja Desai, Erfan Faridmoayer, Sabah Usmani"
+author: "Brittany Shea, Pooja Desai, Erfan Faridmoayer, Sabah Usmani, Niharika Telrandhe"
 date: "`r Sys.Date()`"
 output: github_document
 ---
@@ -20,7 +20,11 @@ Our hope is to see the overview Covid-19 trends in NYC, including vaccination ra
  
 ## The intended final products
 At this stage, we anticipate working on the following:
-Creating a website on github with the results of our work. 
+
+- Evaluate and select useful variables from the links below.
+- Present information on zip code / borough distribution of Covid, and vaccinations.
+- Use functions such as ggplot to visualize our chosen variables of interest.
+- Create a website on github with the results of our work. 
  
 ## The anticipated data sources
  -  NYC COVID Vaccine Data:  https://github.com/nychealth/covid-vaccine-data 

@@ -1,6 +1,7 @@
 p8105_finalproject_fall2022
 ================
-Brittany Shea, Pooja Desai, Erfan Faridmoayer, Sabah Usmani
+Brittany Shea, Pooja Desai, Erfan Faridmoayer, Sabah Usmani, Niharika
+Telrandhe
 2022-11-11
 
 ## The group members (names and UNIs)
@@ -22,8 +23,14 @@ variables. We will assess trends at the borough and zip-code levels.
 
 ## The intended final products
 
-At this stage, we anticipate working on the following: Creating a
-website on github with the results of our work.
+At this stage, we anticipate working on the following:
+
+-   Evaluate and select useful variables from the links below.
+-   Present information on zip code / borough distribution of Covid, and
+    vaccinations.
+-   Use functions such as ggplot to visualize our chosen variables of
+    interest.
+-   Create a website on github with the results of our work.
 
 ## The anticipated data sources
 
