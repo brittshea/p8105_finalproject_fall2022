@@ -16,7 +16,7 @@ Sabah Usmani - su2145
 COVID trends in NYC - Understanding the socio-economic and demographic trends
  
 ## The motivation for this project
-Our hope is to see the overview Covid trends in NYC, including vaccination rates, and investigate potential associations with socioeconomic status, living location, poverty levels, and other variables.
+Our hope is to see the overview Covid-19 trends in NYC, including vaccination rates, and investigate potential associations with socioeconomic status, living location, poverty levels, and other variables. We will assess trends at the borough and zip-code levels. 
  
 ## The intended final products
 At this stage, we anticipate working on the following:
@@ -28,8 +28,12 @@ Creating a website on github with the results of our work.
  - NYC Demographics by Zipcode: https://data.cityofnewyork.us/City-Government/Demographic-Statistics-By-Zip-Code/kku6-nxdu 
  
 ## The planned analyses / visualizations / coding challenges
+  - Select (time period, variables) and clean appropriate data
+  - Visualization of COVID-19 trends 
+  - Create visualization at 2 levels: zipcode &  borough 
+  - Identify zipcodes with high COVID rate and low SES
  
 ## The planned timeline
-
+  - 
 
 
