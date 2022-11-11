@@ -15,10 +15,10 @@ trends
 
 ## The motivation for this project
 
-Our hope is to see the overview Covid trends in NYC, including
+Our hope is to see the overview Covid-19 trends in NYC, including
 vaccination rates, and investigate potential associations with
 socioeconomic status, living location, poverty levels, and other
-variables.
+variables. We will assess trends at the borough and zip-code levels.
 
 ## The intended final products
 
@@ -36,4 +36,25 @@ website on github with the results of our work.
 
 ## The planned analyses / visualizations / coding challenges
 
+-   Select (time period, variables) and clean/tidy appropriate data
+-   Visualization of COVID-19 trends
+-   Create visualization at 2 levels: zipcode & borough
+-   Identify zipcodes with high COVID rate and low SES
+
 ## The planned timeline
+
+-   November 12 by 1:00 pm: Form a team and submit a written proposal
+    document
+-   November 15-18: Meet via Zoom to review feedback
+-   November 22: Meet via Zoom to finalize deliverables and initial data
+    exploration
+-   November 29: Meet via Zoom - Progress meeting 1
+-   December 2: Meet via Zoom - Progress meeting 2
+-   December 9: Meet via Zoom - Progress meeting 3 (finalize website)
+-   December 10 by 11:59 pm: Written report giving detailed project
+    description
+-   December 10 by 11:59 pm: Webpage overview of project, with short
+    explanatory video (published online)
+-   December 10 by 11:59 pm: Peer assessment - brief assessment of your
+    teammates contributions (as a short document)
+-   December 15: “In class” discussion of projects
