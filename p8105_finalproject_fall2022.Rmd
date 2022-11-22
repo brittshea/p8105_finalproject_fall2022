@@ -28,7 +28,8 @@ Creating a website on github with the results of our work.
  - NYC Demographics by Zipcode: https://data.cityofnewyork.us/City-Government/Demographic-Statistics-By-Zip-Code/kku6-nxdu 
  
 ## The planned analyses / visualizations / coding challenges
- 
+
+
 ## The planned timeline
 
 
