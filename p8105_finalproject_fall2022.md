@@ -2,23 +2,23 @@ p8105_finalproject_fall2022
 ================
 Brittany Shea, Pooja Desai, Erfan Faridmoayer, Sabah Usmani, Niharika
 Telrandhe
-2022-11-11
+2022-12-02
 
 ## The group members (names and UNIs)
 
 Brittany Shea - bes2161 Erfan Faridmoayer - ef2721 Pooja Desai - pmd2137
 Niharika Telrandhe - nt2607 Sabah Usmani - su2145
 
-## The tentative project title
+## The project title
 
-COVID trends in NYC - Understanding the socio-economic and demographic
-trends
+COVID vaccination booster trends - Understanding geographic and
+socioeconomic trends
 
 ## The motivation for this project
 
-Our hope is to see the overview Covid-19 trends in NYC, including
-vaccination rates, and investigate potential associations with
-socioeconomic status, living location, poverty levels, and other
+Our hope is to examine COVID-19 booster vaccination trends for certain
+age groups in NYC, focusing on a few specific time points, and
+investigate potential associations with geographic and socioeconomic
 variables. We will assess trends at the borough and zip-code levels.
 
 ## The intended final products
@@ -26,8 +26,7 @@ variables. We will assess trends at the borough and zip-code levels.
 At this stage, we anticipate working on the following:
 
 -   Evaluate and select useful variables from the links below.
--   Present information on zip code / borough distribution of Covid, and
-    vaccinations.
+-   Present information on zip code / borough distribution of booster.
 -   Use functions such as ggplot to visualize our chosen variables of
     interest.
 -   Create a website on github with the results of our work.
@@ -36,32 +35,30 @@ At this stage, we anticipate working on the following:
 
 -   NYC COVID Vaccine Data:
     <https://github.com/nychealth/covid-vaccine-data>
--   NYC Coronavirus Data:
-    <https://github.com/nychealth/coronavirus-data>
 -   NYC Demographics by Zipcode:
     <https://data.cityofnewyork.us/City-Government/Demographic-Statistics-By-Zip-Code/kku6-nxdu>
 
 ## The planned analyses / visualizations / coding challenges
 
--   Select (time period, variables) and clean/tidy appropriate data
--   Visualization of COVID-19 trends
--   Create visualization at 2 levels: zipcode & borough
--   Identify zipcodes with high COVID rate and low SES
+\<\<\<\<\<\<\< HEAD
 
-## The planned timeline
+======= - Select (time period, variables) and clean/tidy appropriate
+data - Visualization of COVID-19 booster trends - Create visualization
+at 2 levels: zipcode & borough - Identify zipcodes with high booster
+rate and low SES
 
--   November 12 by 1:00 pm: Form a team and submit a written proposal
-    document
--   November 15-18: Meet via Zoom to review feedback
--   November 22: Meet via Zoom to finalize deliverables and initial data
-    exploration
--   November 29: Meet via Zoom - Progress meeting 1
--   December 2: Meet via Zoom - Progress meeting 2
--   December 9: Meet via Zoom - Progress meeting 3 (finalize website)
--   December 10 by 11:59 pm: Written report giving detailed project
-    description
--   December 10 by 11:59 pm: Webpage overview of project, with short
-    explanatory video (published online)
--   December 10 by 11:59 pm: Peer assessment - brief assessment of your
-    teammates contributions (as a short document)
--   December 15: “In class” discussion of projects
+> > > > > > > 251aaa6921e4c561cfef6daba17088d45cdfb234 \## The planned
+> > > > > > > timeline - November 12 by 1:00 pm: Form a team and submit
+> > > > > > > a written proposal document - November 15-18: Meet via
+> > > > > > > Zoom to review feedback - November 22: Meet via Zoom to
+> > > > > > > finalize deliverables and initial data exploration -
+> > > > > > > November 29: Meet via Zoom - Progress meeting 1 - December
+> > > > > > > 2: Meet via Zoom - Progress meeting 2 - December 9: Meet
+> > > > > > > via Zoom - Progress meeting 3 (finalize website) -
+> > > > > > > December 10 by 11:59 pm: Written report giving detailed
+> > > > > > > project description - December 10 by 11:59 pm: Webpage
+> > > > > > > overview of project, with short explanatory video
+> > > > > > > (published online) - December 10 by 11:59 pm: Peer
+> > > > > > > assessment - brief assessment of your teammates
+> > > > > > > contributions (as a short document) - December 15: “In
+> > > > > > > class” discussion of projects
