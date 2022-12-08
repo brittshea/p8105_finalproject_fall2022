@@ -10,26 +10,57 @@ library(dplyr)
 library(tidyverse)
 library(ggplot2)
 library(purrr)
+library(readxl)
+library(viridis)
+
+knitr::opts_chunk$set(
+	echo = TRUE,
+	warning = FALSE,
+	fig.width = 8, 
+  fig.height = 6,
+  out.width = "90%"
+)
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
 ```
 
-```{r poverty_data_preprocessing, paged.print=TRUE}
+```{r}
 data <- read.csv("data/census_data/poverty_status.csv", skip = 1) %>%
   janitor::clean_names()
 
 dataset_clean = data %>% 
-  mutate(modzcta = substr(geographic_area_name,6,11), total_pop_pov_status_det_over_18 = estimate_total_population_for_whom_poverty_status_is_determined - estimate_total_population_for_whom_poverty_status_is_determined_age_under_18_years, total_pop_pov_status_det_under_65 = estimate_total_population_for_whom_poverty_status_is_determined - estimate_total_population_for_whom_poverty_status_is_determined_age_65_years_and_over, total_pop_pov_status_det = estimate_total_population_for_whom_poverty_status_is_determined, total_pop_pov_status_det_65_and_over = estimate_total_population_for_whom_poverty_status_is_determined_age_65_years_and_over) %>% 
-  select(modzcta, total_pop_pov_status_det, total_pop_pov_status_det_over_18, total_pop_pov_status_det_under_65, total_pop_pov_status_det_65_and_over)
-
-# estimate_below_poverty_level_population_for_whom_poverty_status_is_determined
-# estimate_percent_below_poverty_level_population_for_whom_poverty_status_is_determined
+  mutate(modzcta = substr(geographic_area_name,6,11), total_pop_pov_det_18_and_over = estimate_total_population_for_whom_poverty_status_is_determined - estimate_total_population_for_whom_poverty_status_is_determined_age_under_18_years) %>% 
+  mutate(below_pov_level_pop_pov_det_18_and_over = estimate_below_poverty_level_population_for_whom_poverty_status_is_determined - estimate_below_poverty_level_population_for_whom_poverty_status_is_determined_age_under_18_years) %>% 
+    select(modzcta, total_pop_pov_det_18_and_over, below_pov_level_pop_pov_det_18_and_over)
+  
+         
+#total_pop_pov_det_under_65 = estimate_total_population_for_whom_poverty_status_is_determined - estimate_total_population_for_whom_poverty_status_is_determined_age_65_years_and_over, total_pop_pov_det_65_and_over = estimate_total_population_for_whom_poverty_status_is_determined_age_65_years_and_over) %>% 
+#below_pov_level_pop_pov_det_under_65 = estimate_below_poverty_level_population_for_whom_poverty_status_is_determined - estimate_below_poverty_level_population_for_whom_poverty_status_is_determined_age_65_years_and_over, below_pov_level_pop_pov_det_65_and_over = estimate_below_poverty_level_population_for_whom_poverty_status_is_determined_age_65_years_and_over) %>% 
 
 ```
 
-```{r zipcode-data}
+# divide total determined by under poverty level to find proportion
+
+```{r}
+dataset_clean = dataset_clean %>% 
+  mutate(prop_below_pov_level_18_and_over = below_pov_level_pop_pov_det_18_and_over / total_pop_pov_det_18_and_over)
+
+```
+
+
+```{r}
 zipcode_data <- read.csv("data/Modified_Zip_Code_Tabulation_Areas__MODZCTA_.csv")
 ```
 
-```{r vaccine-data}
+```{r}
 vaccine_data <- read.csv("data/coverage-by-modzcta-adults_03.09.22.csv") %>%
   janitor::clean_names() %>%
   mutate(modzcta = as.character(modzcta))
@@ -38,68 +69,53 @@ vaccine_data$modzcta <- gsub('\\s+', '', vaccine_data$modzcta)
 dataset_clean$modzcta <- gsub('\\s+', '', dataset_clean$modzcta)
 ```
 
-```{r merge-dataset}
+```{r}
 joined_dataset_poverty = merge(vaccine_data,dataset_clean, by = "modzcta", all.x = TRUE)
 ```
 
-
-####?
-
+# Create proportions for vaccine data
 
 ```{r}
-joined_dataset_education %>%
+joined_dataset_poverty = joined_dataset_poverty %>% 
   mutate(
-    hs.under_total = hs.under_under.65 + hs.under_65.over,
-    hs.to.ba_total = hs.to.ba_under.65 + hs.to.ba_65.over,
-    ba.over_total = ba.over_under.65 + ba.over_65.over) %>%
-  
-  pivot_longer(c("hs.under_under.65", "hs.to.ba_under.65","ba.over_under.65", 
-                 "hs.under_65.over", "hs.to.ba_65.over","ba.over_65.over",
-                 "hs.under_total","hs.to.ba_total", "ba.over_total"), 
-               names_to = "age_edu_label", 
-               values_to = "edu_count") %>%
-  
-  separate(col=age_edu_label, into=c("edu","age"), sep="_", convert = TRUE) %>%
-  mutate(edu = recode(edu, "hs.under" = "HS or less", 
-                      "hs.to.ba" = "HS to B.A.", "ba.over" = "B.A. or more"),
-    edu = factor(edu),
-    age = recode(age, "under.65" = "under 65", "65.over" = "65 +"),
-    age = factor(age),
-    borough = factor(borough),
-    count_age_edu = ifelse(age == "total", edu_pop_total, 
-                       ifelse(age == "under 65",edu_pop_under65_total,total_pop_65)),
-    edu_prop = edu_count/count_age_edu,
-    partially_vaccinated_prop = count_partially_cumulative/pop_denominator,
-    fully_vaccinated_prop = count_fully_cumulative/pop_denominator,
-    booster_prop = count_additional_cumulative/pop_denominator) %>%
-
-    select(borough, modzcta, neighborhood_name, pop_denominator, count_age_edu,
-           edu_count, edu, age, partially_vaccinated_prop,
-           fully_vaccinated_prop, booster_prop, edu_prop) -> edu_booster_dataset
-  
+    prop_partially = count_partially_cumulative / pop_denominator,
+    prop_fully = count_fully_cumulative / pop_denominator,
+    prop_booster = count_additional_cumulative / pop_denominator
+  )
 ```
+
+### 3 plots with y-axis partial, fully, booster
+
+# Fully
 
 ```{r}
-edu_booster_dataset[edu_booster_dataset$age=="total",]
+joined_dataset_poverty %>% 
+  ggplot(aes(x = prop_below_pov_level_18_and_over, y = prop_fully, color = borough)) +
+  geom_point()
+
 ```
+
+# Partially
 
 ```{r}
-p <- ggplot(data = edu_booster_dataset[edu_booster_dataset$age=="total",],
-            aes(x = edu_prop, y = booster_prop, color = edu))
-p + geom_point() + facet_grid(~ age)
+joined_dataset_poverty %>% 
+  ggplot(aes(x = prop_below_pov_level_18_and_over, y = prop_partially, color = borough)) +
+  geom_point()
+
 ```
 
+# Booster
 ```{r}
-m <- ggplot(data = edu_booster_dataset[edu_booster_dataset$age=="total",], 
-            aes(x = edu_prop, y = fully_vaccinated_prop, color = edu))
-m + geom_point()
+joined_dataset_poverty %>% 
+  ggplot(aes(x = prop_below_pov_level_18_and_over, y = prop_booster, color = borough)) +
+  geom_point()
+
 ```
 
-```{r pressure, echo=FALSE}
-#tidy the dataset, longer format
-ggplot(aes(x = estimate, y = city_state)) + 
-  geom_point() + #add estimates
-  geom_errorbar(aes(xmin=conf.low, xmax = conf.high)) +
-  xlab("Unsolved Homicide Rate") +
-  ylab("Location")
+# Plot zipcode and variable 
+```{r}
+joined_dataset_poverty %>% 
+  ggplot(aes(x = prop_below_pov_level_18_and_over, y = borough, color = borough)) +
+  geom_point()
+
 ```
