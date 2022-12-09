@@ -43,4 +43,5 @@ zipcode_data <- read.csv("data/Modified_Zip_Code_Tabulation_Areas__MODZCTA_.csv"
 
 ```{r merege-dataset}
 merged_vaccine_data = merge(vaccine_data_tidy,zipcode_data, by = "modzcta", all.x = TRUE)
+
 ```
