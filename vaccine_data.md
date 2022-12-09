@@ -17,7 +17,6 @@ library(tidyverse)
 
 ``` r
 library(readxl)
-library(esquisse)
 
 knitr::opts_chunk$set(
   fig.width = 6, 
@@ -63,4 +62,6 @@ zipcode_data <- read.csv("data/Modified_Zip_Code_Tabulation_Areas__MODZCTA_.csv"
 
 ``` r
 merged_vaccine_data = merge(vaccine_data_tidy,zipcode_data, by = "modzcta", all.x = TRUE)
+
+write.csv(merged_vaccine_data, "./data/merged/merged_vaccine_data.csv", row.names=FALSE)
 ```
