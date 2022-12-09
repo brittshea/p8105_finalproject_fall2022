@@ -1,0 +1,51 @@
+---
+title: "Vaccine_data"
+output: github_document
+date: "2022-12-09"
+---
+
+```{r import}
+library(tidyverse)
+library(readxl)
+library(esquisse)
+
+knitr::opts_chunk$set(
+  fig.width = 6, 
+  fig.asp = 0.6,
+  out.width = "90%"
+)
+
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+
+options(
+  ggplot2.continuous.color = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_color_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+```
+
+```{r data_tidying}
+
+#Loading vaccine data 
+vaccine_data_tidy = read_csv(file = "./data/coverage-by-modzcta-adults_03.09.22.csv")%>%
+  janitor::clean_names()%>%
+  mutate(modzcta = as.character(modzcta),count_partially_prop = round(count_partially_cumulative/pop_denominator,2), count_Fully_prop = round(count_fully_cumulative/pop_denominator,2), count_1Plus_prop = round(count_1plus_cumulative/pop_denominator,2), count_Additional_prop = round(count_additional_cumulative/pop_denominator,2))
+
+vaccine_data_tidy$modzcta <- gsub('\\s+', '', vaccine_data_tidy$modzcta)
+
+#Loading zipcode data 
+zipcode_data <- read.csv("data/Modified_Zip_Code_Tabulation_Areas__MODZCTA_.csv") %>% 
+  janitor::clean_names() %>% 
+  select(modzcta, label,zcta,pop_est,the_geom)
+
+```
+
+```{r merge-dataset}
+merged_vaccine_data = merge(vaccine_data_tidy,zipcode_data, by = "modzcta", all.x = TRUE)
+```
+
+```{r EDA}
+```
+
