@@ -21,31 +21,21 @@ data <- read.csv("data/census_data/edu_attainment.csv", skip = 1) %>%
     edu_pop_under65_total = total_pop_18_24 + (total_pop_25 - total_pop_65),
     edu_pop_under65_me = me_pop_18_24 + (me_total_pop_25 - me_pop_65),
     
-<<<<<<< HEAD
     #regroup 18-24 into edu categories
-=======
->>>>>>> b1c0d0454e268a45df56460131caf34d90dc5c04
     total_hs.under_18_24 = total_less_hs12_18_24 + total_hs_18_24,
     total_hs.to.ba_18_24 = total_some_col_18_24,
     total_ba.over_18_24 = total_col_18_24,
-    
-<<<<<<< HEAD
+
     #regroup 25+ into edu categories
-=======
->>>>>>> b1c0d0454e268a45df56460131caf34d90dc5c04
     total_hs.under_25.over = total_pop_25 - total_over_hs_25,
     total_hs.to.ba_25.over = total_over_hs_25 - total_ba_over_25,
     total_ba.over_25.over = total_ba_over_25,
-    
-<<<<<<< HEAD
+
     #regroup 65+ into edu categories
-=======
->>>>>>> b1c0d0454e268a45df56460131caf34d90dc5c04
     hs.under_65.over = total_pop_65 - total_over_hs_65,
     hs.to.ba_65.over= total_over_hs_65 - total_ba_over_65,
     ba.over_65.over = total_ba_over_65,
     
-<<<<<<< HEAD
     #calculate under 65, into edu categories
     hs.under_under.65 = total_hs.under_18_24 + (total_hs.under_25.over - hs.under_65.over),
     hs.to.ba_under.65 = total_hs.to.ba_18_24 + (total_hs.to.ba_25.over - hs.to.ba_65.over),
@@ -55,16 +45,6 @@ data <- read.csv("data/census_data/edu_attainment.csv", skip = 1) %>%
     modzcta, edu_pop_total, edu_pop_under65_total, total_pop_65,
     hs.under_under.65, hs.to.ba_under.65, ba.over_under.65,
     hs.under_65.over, hs.to.ba_65.over, ba.over_65.over) -> dataset_clean #export truncated dataset
-=======
-    hs.under_under.65 = total_hs.under_18_24 + (total_hs.under_25.over - hs.under_65.over),
-    hs.to.ba_under.65 = total_hs.to.ba_18_24 + (total_hs.to.ba_25.over - hs.to.ba_65.over),
-    ba.over_under.65 = total_ba.over_18_24 + (total_ba.over_25.over - ba.over_65.over),
-    modzcta = substr(zcta_zip,6,11)) %>%
-  select(
-    modzcta, edu_pop_total, edu_pop_under65_total, total_pop_65,
-    hs.under_under.65, hs.to.ba_under.65, ba.over_under.65,
-    hs.under_65.over, hs.to.ba_65.over, ba.over_65.over) -> dataset_clean
->>>>>>> b1c0d0454e268a45df56460131caf34d90dc5c04
 
 ```
 
@@ -82,19 +62,15 @@ Educational bucket:
 | btwn HS and college | total_some_col_18_24                    | total_over_hs_25 - total_ba_over_25 | total_over_hs_65 - total_over_ba_65 |
 | 4 yr degree +       | total_col_18_24                         | total_over_ba_25                    | total_over_ba_65                    |
 
-<<<<<<< HEAD
 ```{r vaccine-data}
 
 #read in booster data
-vaccine_data <- read.csv("data/coverage-by-modzcta-adults_03.09.22.csv") %>% 
-=======
-```{r zipcode-data}
+vaccine_data <- read.csv("data/coverage-by-modzcta-adults_03.09.22.csv")
 zipcode_data <- read.csv("data/Modified_Zip_Code_Tabulation_Areas__MODZCTA_.csv")
 ```
 
 ```{r vaccine-data}
 vaccine_data <- read.csv("data/coverage-by-modzcta-adults_03.09.22.csv") %>%
->>>>>>> b1c0d0454e268a45df56460131caf34d90dc5c04
   janitor::clean_names() %>%
   mutate(modzcta = as.character(modzcta))
 
@@ -102,19 +78,10 @@ vaccine_data$modzcta <- gsub('\\s+', '', vaccine_data$modzcta)
 dataset_clean$modzcta <- gsub('\\s+', '', dataset_clean$modzcta)
 ```
 
-```{r merege-dataset}
-<<<<<<< HEAD
+```{r merge-dataset}
 #merge booster and edu
-=======
->>>>>>> b1c0d0454e268a45df56460131caf34d90dc5c04
 joined_dataset_education = merge(vaccine_data,dataset_clean, by = "modzcta", all.x = TRUE)
-```
 
-```{r}
-<<<<<<< HEAD
-#tidy dataset
-=======
->>>>>>> b1c0d0454e268a45df56460131caf34d90dc5c04
 joined_dataset_education %>%
   mutate(
     hs.under_total = hs.under_under.65 + hs.under_65.over,
@@ -144,50 +111,25 @@ joined_dataset_education %>%
     select(borough, modzcta, neighborhood_name, pop_denominator, count_age_edu,
            edu_count, edu, age, partially_vaccinated_prop,
            fully_vaccinated_prop, booster_prop, edu_prop) -> edu_booster_dataset
-<<<<<<< HEAD
 
-write.csv(edu_booster_dataset, "cleaned_edu_booster_dataset.csv", row.names=FALSE)
+write.csv(edu_booster_dataset, "./data/merged/cleaned_edu_booster_dataset.csv", row.names=FALSE)
 
 ```
 
 ## Plots for EDA
-=======
-  
 ```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r}
-```
->>>>>>> b1c0d0454e268a45df56460131caf34d90dc5c04
 
 ```{r}
 edu_booster_dataset[edu_booster_dataset$age=="total",]
-```
 
-```{r}
 p <- ggplot(data = edu_booster_dataset[edu_booster_dataset$age=="total",],
             aes(x = edu_prop, y = booster_prop, color = edu))
-<<<<<<< HEAD
+
 p + geom_point() + facet_grid(~ age) +
-  labs(
-    xlab = "proportion of ZIP educated"
-  )
-=======
+  labs(xlab = "proportion of ZIP educated")
+
 p + geom_point() + facet_grid(~ age)
->>>>>>> b1c0d0454e268a45df56460131caf34d90dc5c04
+
 ```
 
 ```{r}
