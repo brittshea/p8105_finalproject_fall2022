@@ -127,3 +127,19 @@ joined_dataset_education %>%
 ``` r
 write.csv(edu_booster_dataset, "./data/merged/cleaned_edu_booster_dataset.csv", row.names=FALSE)
 ```
+
+### Fully Vaccinated Individuals by Education Status and Age
+
+![](edu-data_pre-processing_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
+### Additional/Booster Individuals by Education Status and Age
+
+![](edu-data_pre-processing_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
+### Fully Vaccinated Individuals by Education Status and Boroughs
+
+![](edu-data_pre-processing_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+### Additional/Booster Individuals by Education Status and Boroughs
+
+![](edu-data_pre-processing_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
