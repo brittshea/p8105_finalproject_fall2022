@@ -1,7 +1,7 @@
 ---
 title: "Education Data Pre-Processing + Exploration"
 author: "Pooja Desai (pmd2137)"
-date: "12/5/2022"
+date: "12/9/2022"
 output: github_document
 ---
 
@@ -52,13 +52,11 @@ Population buckets: total population (18+) // under 65 population (18-65) // ove
 
 Educational bucket:
 
-| EDU // AGE bucket   | 18-24                                   | 25+                                 | 65+                                 |
-<<<<<<< HEAD
+| EDU // AGE bucket   | 18-24            | 25+            | 65+                                 |
 |-----------------|--------------------|------------------|------------------|
-=======
 |--------------------|--------------------|----------------|-----------------|
->>>>>>> b1c0d0454e268a45df56460131caf34d90dc5c04
-| HS (GED) or less    | total_less_hs_12_18_24 + total_hs_18_24 | total_pop_25 - total_over_hs_25     | total_pop_65 - total_over_hs_65     |
+
+| HS (GED) or less    | total_less_hs_12_18_24 + total_hs_18_24 | total_pop_25 - total_over_hs_25  | total_pop_65 - total_over_hs_65     |
 | btwn HS and college | total_some_col_18_24                    | total_over_hs_25 - total_ba_over_25 | total_over_hs_65 - total_over_ba_65 |
 | 4 yr degree +       | total_col_18_24                         | total_over_ba_25                    | total_over_ba_65                    |
 
@@ -114,40 +112,3 @@ joined_dataset_education %>%
 
 write.csv(edu_booster_dataset, "./data/merged/cleaned_edu_booster_dataset.csv", row.names=FALSE)
 
-```
-
-## Plots for EDA
-```
-
-```{r}
-edu_booster_dataset[edu_booster_dataset$age=="total",]
-
-p <- ggplot(data = edu_booster_dataset[edu_booster_dataset$age=="total",],
-            aes(x = edu_prop, y = booster_prop, color = edu))
-
-p + geom_point() + facet_grid(~ age) +
-  labs(xlab = "proportion of ZIP educated")
-
-p + geom_point() + facet_grid(~ age)
-
-```
-
-```{r}
-m <- ggplot(data = edu_booster_dataset[edu_booster_dataset$age=="total",], 
-            aes(x = edu_prop, y = fully_vaccinated_prop, color = edu))
-m + geom_point()
-```
-<<<<<<< HEAD
-=======
-
-```{r pressure, echo=FALSE}
-#tidy the dataset, longer format
-ggplot(aes(x = estimate, y = city_state)) + 
-  geom_point() + #add estimates
-  geom_errorbar(aes(xmin=conf.low, xmax = conf.high)) +
-  xlab("Unsolved Homicide Rate") +
-  ylab("Location")
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
->>>>>>> b1c0d0454e268a45df56460131caf34d90dc5c04
